@@ -35,6 +35,7 @@ const ImageBaseResults = () => {
             setPage(data.pagination);
             setResults(data.data.length);
             setIsLoading(false);
+            console.log("muzej", data);
 
         } catch (err) {
             setError(err);
@@ -73,7 +74,7 @@ const ImageBaseResults = () => {
                     </tr>
                     <tr >
                         <td className="results">
-                                Noting Found                        
+                            Noting Found
                         </td>
                     </tr>
                 </tbody>
@@ -114,7 +115,10 @@ const ImageBaseResults = () => {
                         <Pagination
                             count={paginatedPosts.length}
                             page={currentPage}
-                            onChange={(_, newPage) => setCurrentPage(newPage)}
+                            onChange={(_, newPage) => {
+                                setCurrentPage(newPage);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }}
                         />
                     </Box>
                 )}

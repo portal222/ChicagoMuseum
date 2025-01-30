@@ -62,19 +62,19 @@ const ImageBaseResults2 = () => {
     } else if (results == 0) {
         return (
             <table className="main">
-            <tbody>
-                <tr>
-                    <td className="home">
-                        <SearchPlace />
-                    </td>
-                </tr>
-                <tr>
-                    <td className="results">
-                        noting found
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                <tbody>
+                    <tr>
+                        <td className="home">
+                            <SearchPlace />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="results">
+                            noting found
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         )
     }
 
@@ -111,7 +111,10 @@ const ImageBaseResults2 = () => {
                         <Pagination
                             count={paginatedPosts.length}
                             page={currentPage}
-                            onChange={(_, newPage) => setCurrentPage(newPage)}
+                            onChange={(_, newPage) => {
+                                setCurrentPage(newPage);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }}
                         />
                     </Box>
                 )}

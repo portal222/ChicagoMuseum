@@ -74,7 +74,7 @@ const ImageBaseClickName2 = () => {
                     </tr>
                     <tr >
                         <td className="results">
-                                Noting Found                        
+                            Noting Found
                         </td>
                     </tr>
                 </tbody>
@@ -115,7 +115,10 @@ const ImageBaseClickName2 = () => {
                         <Pagination
                             count={paginatedPosts.length}
                             page={currentPage}
-                            onChange={(_, newPage) => setCurrentPage(newPage)}
+                            onChange={(_, newPage) => {
+                                setCurrentPage(newPage);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }}
                         />
                     </Box>
                 )}

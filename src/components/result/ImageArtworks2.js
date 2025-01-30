@@ -18,7 +18,7 @@ const ImageArtworks2 = (props) => {
         const LinkTo = `/artist/${artistTitle}`;
         navigate(LinkTo);
     }
-  
+
     useEffect(() => {
         getPhoto()
     }, [])
@@ -62,7 +62,10 @@ const ImageArtworks2 = (props) => {
                     </tr>
                     <tr>
                         <td className="artist"
-                        onClick={() => clickArtist(museum.artist_title)}>
+                            onClick={() => {
+                                clickArtist(museum.artist_title);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }}>
                             {museum.artist_display}
                         </td>
                     </tr>
